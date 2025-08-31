@@ -49,11 +49,20 @@ export default function SuicideAssessment() {
       }
 
       // Create assessment result
+      const severity: "severe" | "moderately_severe" | "moderate" | "mild" | "minimal" =
+        riskLevel === 'critical'
+          ? "severe"
+          : riskLevel === 'high'
+          ? "moderately_severe"
+          : riskLevel === 'moderate'
+          ? "moderate"
+          : "mild";
+
       const assessment = {
         id: `suicide_${Date.now()}`,
         timestamp: new Date(),
         scores: { suicideRisk: riskFactors },
-        severity: riskLevel === 'critical' ? 'severe' : riskLevel === 'high' ? 'moderately_severe' : riskLevel === 'moderate' ? 'moderate' : 'mild',
+        severity,
         symptoms: riskFactors > 0 ? ['Suicidal ideation', 'Risk factors present'] : [],
         recommendations: riskLevel === 'critical' ? 
           ['Call 988 immediately', 'Go to emergency room', 'Remove access to means'] :

@@ -50,7 +50,7 @@ export default function Dashboard() {
               <div>
                 <p className="text-sm font-medium text-gray-600">Average Mood</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {progressTracking?.weeklyCheckins?.length > 0 
+                  {progressTracking?.weeklyCheckins && progressTracking.weeklyCheckins.length > 0 
                     ? Math.round(progressTracking.weeklyCheckins.reduce((sum, checkin) => sum + checkin.mood, 0) / progressTracking.weeklyCheckins.length)
                     : 'N/A'
                   }/10

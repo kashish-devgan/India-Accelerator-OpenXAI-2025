@@ -9,6 +9,7 @@ export interface AssessmentResult {
     energy?: number;
     social?: number;
     coping?: number;
+    suicidalRisk?: number;
   };
   severity: 'minimal' | 'mild' | 'moderate' | 'moderately_severe' | 'severe';
   symptoms: string[];
